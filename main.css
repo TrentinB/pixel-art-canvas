@@ -1,0 +1,16 @@
+.dark-theme{
+    color: #ffffff;
+    background: #000000;
+}
+
+body {
+    font-family: monospace;
+}
+
+ul {
+    font-family: helvetica;
+}
+
+li {
+    list-style: square;
+}

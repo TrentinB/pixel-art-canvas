@@ -1,10 +1,22 @@
+:root {
+    --white: #ffffff;
+    --black: #000000;
+}
+
+.light-theme{
+    --fontColor: var(--black);
+    --bg: var(--white);
+}
+
 .dark-theme{
-    color: #ffffff;
-    background: #000000;
+    --fontColor: var(--white);
+    --bg: var(--black);
 }
 
 body {
     font-family: monospace;
+    background: var(--bg);
+    color: var(--fontColor);
 }
 
 ul {
@@ -14,3 +26,15 @@ ul {
 li {
     list-style: square;
 }
+
+.btn {
+    position: absolute;
+    top: 20px;
+    left: 250px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: none;
+    color: red;
+    background-color: blue;
+  }

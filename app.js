@@ -17,6 +17,8 @@ themeButton.addEventListener('click', function() {
 });
 
 pixel.addEventListener('click', function() {
-    console.log("pixel here");
+    this.style.background = "var(--selectedColor)";
 });
+
+
 

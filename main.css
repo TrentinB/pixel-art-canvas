@@ -29,15 +29,11 @@ body {
     border: none;
     color: red;
     background-color: blue;
-  }
+}
 
 .pixel {
     height: 50px;
     width: 50px;
     border: none;
-    background-color: var(--white);
-}
-
-.painted {
-    background-color: var(--selectedColor)
+    background: var(--white);
 }

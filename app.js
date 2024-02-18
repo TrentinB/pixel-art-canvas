@@ -1,8 +1,10 @@
 'use strict';
 
-const colorButton = document.querySelector('.btn');
+const themeButton = document.querySelector('.btn');
+const pixel = document.querySelector('.pixel')
 
-colorButton.addEventListener('click', function() {
+
+themeButton.addEventListener('click', function() {
     document.body.classList.toggle('light-theme');
     document.body.classList.toggle('dark-theme');
 
@@ -12,6 +14,9 @@ colorButton.addEventListener('click', function() {
     } else {
         this.textContent = "Light";
     }
-
-    console.log(className);
 });
+
+pixel.addEventListener('click', function() {
+    console.log("pixel here");
+});
+

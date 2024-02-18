@@ -1,6 +1,7 @@
 :root {
     --white: #ffffff;
     --black: #000000;
+    --selectedColor: #d35858;
 }
 
 .light-theme{
@@ -14,21 +15,12 @@
 }
 
 body {
-    font-family: monospace;
+    font-family: helvitica;
     background: var(--bg);
     color: var(--fontColor);
 }
 
-ul {
-    font-family: helvetica;
-}
-
-li {
-    list-style: square;
-}
-
 .btn {
-    position: absolute;
     top: 20px;
     left: 250px;
     height: 50px;
@@ -38,3 +30,14 @@ li {
     color: red;
     background-color: blue;
   }
+
+.pixel {
+    height: 50px;
+    width: 50px;
+    border: none;
+    background-color: var(--white);
+}
+
+.painted {
+    background-color: var(--selectedColor)
+}

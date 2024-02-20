@@ -1,39 +1,11 @@
-:root {
-    --white: #ffffff;
-    --black: #000000;
-    --selectedColor: #d35858;
-}
-
-.light-theme{
-    --fontColor: var(--black);
-    --bg: var(--white);
-}
-
-.dark-theme{
-    --fontColor: var(--white);
-    --bg: var(--black);
-}
-
 body {
     font-family: helvitica;
-    background: var(--bg);
-    color: var(--fontColor);
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
-.btn {
-    top: 20px;
-    left: 250px;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    border: none;
-    color: red;
-    background-color: blue;
-}
-
-.pixel {
-    height: 50px;
-    width: 50px;
-    border: none;
-    background: var(--white);
+#canvas{
+    border: 1px solid;
+    border-color: rgb(102, 102, 102);
+    cursor: crosshair;
 }

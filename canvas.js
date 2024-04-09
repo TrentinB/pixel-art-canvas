@@ -4,6 +4,9 @@ class canvas{
         this.object = object; //object is the html canvas
         this.height = height;
         this.width = width;
+        this.rows = 8;
+        this.columns = 8;
+        this.tool = "draw";
 
         //context data may need to be moved to new methods
         this.ctx = document.getElementById("canvas").getContext("2d");
@@ -11,13 +14,29 @@ class canvas{
     }
 
     draw(x, y){
-        //fillRect(x, y, width, height)
+        //fillRect(mouseX, mouseY, width, height)
         this.ctx.fillRect(x, y, 20, 20);
     }
 
     erase(x, y){
         //clearRect(x, y, width, height)
         this.ctx.clearRect(x, y, 20, 20);
+    }
+
+    useTool(x, y){
+        switch(this.tool){
+            case "draw":
+                this.draw(x, y);
+                break;
+            case "erase":
+                this.erase(x, y);
+                break;
+            default:
+        }
+    }
+
+    setTool(selectedTool){
+        this.tool = selectedTool;
     }
 
     save(){
@@ -30,8 +49,6 @@ var myCanvas = new canvas(document.getElementById("canvas"), 16, 16); //myCanvas
 
 //myCanvas event listener initialization
 myCanvas.object.addEventListener("click", function(e){
-    let mouseX = e.offsetX;  // Horizontal
-    let mouseY = e.offsetY;  // Vertical
-    console.log(mouseX, mouseY);
-    myCanvas.draw(mouseX, mouseY);
+    //myCanvas.draw(e.offsetX, e.offsetY);
+    myCanvas.useTool(e.offsetX, e.offsetY);
 });

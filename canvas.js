@@ -7,6 +7,8 @@ class canvas{
         this.pixelHeight = this.height / 8;
         this.pixelWidth = this.width / 8;
         this.tool = "draw";
+        this.mouseX;
+        this.mouseY;
 
         //context data may need to be moved to new methods
         this.ctx = document.getElementById("canvas").getContext("2d");
@@ -50,9 +52,24 @@ class canvas{
 
 }
 
-var myCanvas = new canvas(document.getElementById("canvas"), 320, 320); //myCanvas initialization
 
-//myCanvas event listener initialization
+var myCanvas = new canvas(document.getElementById("canvas"), 320, 320); //myCanvas initialization
+var mouseDownTimer;
+var mouseDownFlag = false;
+
+//myCanvas event listener initializations
 myCanvas.object.addEventListener("mousedown", function(e){
+    mouseDownFlag = true;
     myCanvas.useTool(e.offsetX, e.offsetY);
+})
+
+addEventListener("mouseup", function(){
+    mouseDownFlag = false;
 });
+
+myCanvas.object.addEventListener("mousemove", function(e){
+    if (mouseDownFlag){
+        myCanvas.useTool(e.offsetX, e.offsetY);
+    }
+});
+

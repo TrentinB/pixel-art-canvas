@@ -1,11 +1,11 @@
 class canvas{
 
-    constructor(object, height, width){
+    constructor(object, height, width, rows, columns){
         this.object = object; //object is the html canvas
         this.height = height;
         this.width = width;
-        this.pixelHeight = this.height / 8;
-        this.pixelWidth = this.width / 8;
+        this.pixelHeight = this.height / rows;
+        this.pixelWidth = this.width / columns;
         this.tool = "draw";
         this.mouseX;
         this.mouseY;
@@ -44,6 +44,7 @@ class canvas{
 
     setTool(selectedTool){
         this.tool = selectedTool;
+        console.log(selectedTool);
     }
 
     save(){
@@ -52,9 +53,37 @@ class canvas{
 
 }
 
+function promptWidth(){
+    var canvasWidth = parseInt(prompt("Enter Pixel Width", 16));
 
-var myCanvas = new canvas(document.getElementById("canvas"), 320, 320); //myCanvas initialization
-var mouseDownTimer;
+    if(isNaN(canvasWidth) || canvasWidth > 50 || canvasWidth <= 0){
+        alert("Width must be an Integer no higher than 50");
+        canvasWidth = promptWidth();
+    }
+
+    return canvasWidth;
+}
+
+function promptHeight(){
+    var canvasHeight = parseInt(prompt("Enter Pixel Height", 16));
+
+    if(isNaN(canvasHeight) || canvasHeight > 50 || canvasHeight <= 0){
+        alert("Height must be an Integer no higher than 50");
+        canvasHeight = promptHeight();
+    }
+
+    return canvasHeight;
+}
+
+
+
+//prompt for canvas height and width first
+var columns = promptWidth();
+var rows = promptHeight();
+
+//Initialize canvas and relevant variables
+var myCanvas = new canvas(document.getElementById("canvas"), 500, 500, rows, columns); //500 is hard coded in html. I know this is bad.
+
 var mouseDownFlag = false;
 
 //myCanvas event listener initializations
@@ -72,4 +101,3 @@ myCanvas.object.addEventListener("mousemove", function(e){
         myCanvas.useTool(e.offsetX, e.offsetY);
     }
 });
-

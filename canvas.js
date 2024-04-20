@@ -12,7 +12,7 @@ class canvas{
 
         //context data may need to be moved to new methods
         this.ctx = document.getElementById("canvas").getContext("2d");
-        this.ctx.fillStyle = "red";
+        this.ctx.fillStyle = "black";
     }
 
     draw(x, y){
@@ -42,9 +42,19 @@ class canvas{
         }
     }
 
+    clear(){
+        if(confirm("Are you sure you want to clear the canvas?")){
+            this.ctx.clearRect(0, 0, this.width, this.height);
+        }
+    }
+
     setTool(selectedTool){
         this.tool = selectedTool;
         console.log(selectedTool);
+    }
+
+    setColor(color){
+        this.ctx.fillStyle = color;
     }
 
     save(){

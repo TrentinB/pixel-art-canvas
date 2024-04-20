@@ -96,8 +96,10 @@ var mouseDownFlag = false;
 
 //myCanvas event listener initializations
 myCanvas.object.addEventListener("mousedown", function(e){
-    mouseDownFlag = true;
-    myCanvas.useTool(e.offsetX, e.offsetY);
+    if(e.button == 0){
+        mouseDownFlag = true;
+        myCanvas.useTool(e.offsetX, e.offsetY);
+    }
 })
 
 addEventListener("mouseup", function(){

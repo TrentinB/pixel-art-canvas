@@ -54,7 +54,7 @@ class canvas{
 }
 
 function promptWidth(){
-    var canvasWidth = parseInt(prompt("Enter Pixel Width", 16));
+    var canvasWidth = parseInt(prompt("Enter Width in pixels", 16));
 
     if(isNaN(canvasWidth) || canvasWidth > 50 || canvasWidth <= 0){
         alert("Width must be an Integer no higher than 50");
@@ -65,7 +65,7 @@ function promptWidth(){
 }
 
 function promptHeight(){
-    var canvasHeight = parseInt(prompt("Enter Pixel Height", 16));
+    var canvasHeight = parseInt(prompt("Enter Height in pixels", 16));
 
     if(isNaN(canvasHeight) || canvasHeight > 50 || canvasHeight <= 0){
         alert("Height must be an Integer no higher than 50");
@@ -74,8 +74,6 @@ function promptHeight(){
 
     return canvasHeight;
 }
-
-
 
 //prompt for canvas height and width first
 var columns = promptWidth();

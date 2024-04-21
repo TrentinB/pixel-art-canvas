@@ -14,13 +14,15 @@
         <canvas id="canvas" height="500" width="500"></canvas>
     </div>
 
-    <script src="canvas.js"></script>
-    <noscript>You must enable JavaScript to be able to use this site</noscript>
     <div>
         <ul>
             <li><button onclick="myCanvas.setTool('draw')">Draw</button></li>
             <li><button onclick="myCanvas.setTool('erase')">Erase</button></li>
-            <li><button onclick="myCanvas.clear()">Clear Canvas</button></li>
+            <li id="currentColor">Current Color: Black</li>
+            <li>Color Selector: <input id="colorPicker" type="color" value="#000000"></li>
+            <li>Common Colors:</li>
+            <li><button onclick="myCanvas.setColor('Black')">Black</button></li>
+            <li><button onclick="myCanvas.setColor('White')">White</button></li>
             <li><button onclick="myCanvas.setColor('Red')">Red</button></li>
             <li><button onclick="myCanvas.setColor('Orange')">Orange</button></li>
             <li><button onclick="myCanvas.setColor('Yellow')">Yellow</button></li>
@@ -28,11 +30,13 @@
             <li><button onclick="myCanvas.setColor('Blue')">Blue</button></li>
             <li><button onclick="myCanvas.setColor('Indigo')">Indigo</button></li>
             <li><button onclick="myCanvas.setColor('Violet')">Violet</button></li>
-            <li><button onclick="myCanvas.setColor('Black')">Black</button></li>
-            <li><button onclick="myCanvas.setColor('White')">White</button></li>
+            <li><button onclick="myCanvas.clear()">Clear Canvas</button></li>
             <li><button onClick="myCanvas.save()">Save</button></li>
         </ul>
     </div>
+
+    <script src="canvas.js"></script>
+    <noscript>You must enable JavaScript to be able to use this site</noscript>
 </body>
 
 </html>

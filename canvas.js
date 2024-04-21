@@ -50,11 +50,11 @@ class canvas{
 
     setTool(selectedTool){
         this.tool = selectedTool;
-        console.log(selectedTool);
     }
 
     setColor(color){
         this.ctx.fillStyle = color;
+        document.getElementById("currentColor").textContent = "Current Color: " + color;
     }
 
     save(){
@@ -65,7 +65,6 @@ class canvas{
             image.download = "pixelArtImage";
             image.click();
             image.remove();
-            console.log("I have reached line 67");
         }
     }
 
@@ -97,8 +96,8 @@ function promptHeight(){
 var columns = promptWidth();
 var rows = promptHeight();
 
-//Initialize canvas and relevant variables
-var myCanvas = new canvas(document.getElementById("canvas"), 500, 500, rows, columns); //500 is hard coded in html. I know this is bad.
+//Initialize canvas and relevant variables (500 is hard coded in html. I know this is bad. I'm sorry.)
+var myCanvas = new canvas(document.getElementById("canvas"), 500, 500, rows, columns);
 
 var mouseDownFlag = false;
 
@@ -118,4 +117,9 @@ myCanvas.object.addEventListener("mousemove", function(e){
     if (mouseDownFlag){
         myCanvas.useTool(e.offsetX, e.offsetY);
     }
+});
+
+//color picker even listener initialization and function
+document.getElementById("colorPicker").addEventListener("change", function(e){
+    myCanvas.setColor(e.target.value);
 });

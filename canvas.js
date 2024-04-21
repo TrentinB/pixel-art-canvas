@@ -58,13 +58,21 @@ class canvas{
     }
 
     save(){
-        //save image of canvas
+        if(confirm("Save Image?")){
+            // anchor for image. Emulates a link click since js apparently struggles with native downloading
+            let image = document.createElement("a");
+            image.href = this.object.toDataURL();
+            image.download = "pixelArtImage";
+            image.click();
+            image.remove();
+            console.log("I have reached line 67");
+        }
     }
 
 }
 
 function promptWidth(){
-    var canvasWidth = parseInt(prompt("Enter Width in pixels", 16));
+    var canvasWidth = parseInt(prompt("Enter Width in pixels", 20));
 
     if(isNaN(canvasWidth) || canvasWidth > 50 || canvasWidth <= 0){
         alert("Width must be an Integer no higher than 50");
@@ -75,7 +83,7 @@ function promptWidth(){
 }
 
 function promptHeight(){
-    var canvasHeight = parseInt(prompt("Enter Height in pixels", 16));
+    var canvasHeight = parseInt(prompt("Enter Height in pixels", 20));
 
     if(isNaN(canvasHeight) || canvasHeight > 50 || canvasHeight <= 0){
         alert("Height must be an Integer no higher than 50");

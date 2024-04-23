@@ -10,7 +10,11 @@ class canvas{
         this.mouseX;
         this.mouseY;
 
-        //context data may need to be moved to new methods
+        // resize html object to match specs
+        this.object.height = height;
+        this.object.width = width;
+
+        //context data
         this.ctx = document.getElementById("canvas").getContext("2d");
         this.ctx.fillStyle = "black";
     }
@@ -23,6 +27,11 @@ class canvas{
     erase(x, y){
         //clearRect(x, y, width, height)
         this.ctx.clearRect(x, y, this.pixelWidth, this.pixelHeight);
+    }
+
+    fill(){
+        //fill(x, y, width, height)
+        this.ctx.fill(x, y, this.pixelWidth, this.pixelHeight);
     }
 
     useTool(x, y){
@@ -39,6 +48,7 @@ class canvas{
                 this.erase(x, y);
                 break;
             default:
+                console.log("Error in canvas.useTool(): Unexpected value in this.tool");
         }
     }
 
@@ -96,8 +106,11 @@ function promptHeight(){
 var columns = promptWidth();
 var rows = promptHeight();
 
-//Initialize canvas and relevant variables (500 is hard coded in html. I know this is bad. I'm sorry.)
-var myCanvas = new canvas(document.getElementById("canvas"), 500, 500, rows, columns);
+const PixelHeight = 25;
+const PixelWidth = 25;
+
+//Initialize canvas and relevant variables
+var myCanvas = new canvas(document.getElementById("canvas"), (rows * PixelHeight), (columns * PixelWidth), rows, columns);
 
 var mouseDownFlag = false;
 

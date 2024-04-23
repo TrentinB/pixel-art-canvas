@@ -20,7 +20,7 @@ function promptHeight(){
     return canvasHeight;
 }
 
-//prompt for canvas height and width first
+//start of execution
 var columns = promptWidth();
 var rows = promptHeight();
 
@@ -34,6 +34,7 @@ var mouseDownFlag = false;
 
 //myCanvas event listener initializations
 myCanvas.object.addEventListener("mousedown", function(e){
+    //this should only work on a left click
     if(e.button == 0){
         mouseDownFlag = true;
         myCanvas.useTool(e.offsetX, e.offsetY);

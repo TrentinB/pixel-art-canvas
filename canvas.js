@@ -29,13 +29,7 @@ class canvas{
         this.ctx.clearRect(x, y, this.pixelWidth, this.pixelHeight);
     }
 
-    fill(){
-        //fill(x, y, width, height)
-        this.ctx.fill(x, y, this.pixelWidth, this.pixelHeight);
-    }
-
     useTool(x, y){
-        
         //truncates coordinates to nearest pixel
         x = x - (x % this.pixelWidth);
         y = y - (y % this.pixelHeight);

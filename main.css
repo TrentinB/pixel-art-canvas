@@ -6,7 +6,7 @@ body {
 
 #canvas{
     border: 5px solid;
-    border-color: rgb(65, 62, 127);
+    border-color: rgb(65, 65, 130);
     background: rgb(160, 160, 160);
     cursor: crosshair;
 }

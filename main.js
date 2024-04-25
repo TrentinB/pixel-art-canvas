@@ -52,6 +52,10 @@ myCanvas.object.addEventListener("mousemove", function(e){
 });
 
 //color picker even listener initialization and function
-document.getElementById("colorPicker").addEventListener("change", function(e){
+document.getElementById("colorPicker").addEventListener("mousedown", function(e){
+    myCanvas.setColor(e.target.value);
+});
+
+document.getElementById("colorPicker").addEventListener("input", function(e){
     myCanvas.setColor(e.target.value);
 });

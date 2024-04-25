@@ -9,7 +9,7 @@ class canvas{
         this.tool = "draw";
         this.mouseX;
         this.mouseY;
-        this.backupData = new ImageData(width, height);
+        this.backupStack = [new ImageData(width, height)];
 
         // resize html object to match specs
         this.object.height = height;
@@ -85,11 +85,11 @@ class canvas{
     }
 
     saveState(){
-        this.backupData = this.context.getImageData(0, 0, this.width, this.height);
+        this.backupStack.push(this.context.getImageData(0, 0, this.width, this.height));
     }
 
     loadState(){
-        this.context.putImageData(this.backupData, 0, 0);
+        this.context.putImageData(this.backupStack.pop(), 0, 0);
     }
 
     getRGB(x, y){

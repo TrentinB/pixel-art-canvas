@@ -9,6 +9,7 @@ class canvas{
         this.tool = "draw";
         this.mouseX;
         this.mouseY;
+        this.backupData = new ImageData(width, height);
 
         // resize html object to match specs
         this.object.height = height;
@@ -19,6 +20,8 @@ class canvas{
         this.context.fillStyle = "black";
     }
 
+
+    //drawing tools~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     draw(x, y){
         //fillRect(mouseX, mouseY, width, height)
         this.context.fillRect(x, y, this.pixelWidth, this.pixelHeight);
@@ -27,18 +30,6 @@ class canvas{
     erase(x, y){
         //clearRect(x, y, width, height)
         this.context.clearRect(x, y, this.pixelWidth, this.pixelHeight);
-    }
-    
-
-    getRGB(x, y){
-        var pixelData = this.context.getImageData(x, y, 1, 1);
-        //pixelData.data[red, green, blue, alpha]
-        return [pixelData.data[0], pixelData.data[1], pixelData.data[2]];
-    }
-
-    //a1 & a2 must be arrays
-    compareArrays(array1, array2){
-        return JSON.stringify(array1) == JSON.stringify(array2);
     }
 
     fill(x, y){
@@ -65,6 +56,8 @@ class canvas{
         }
     }
 
+
+    //functions~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     clear(){
         if(confirm("Are you sure you want to clear the canvas?")){
             this.context.clearRect(0, 0, this.width, this.height);
@@ -80,7 +73,7 @@ class canvas{
         document.getElementById("currentColor").textContent = "Current Color: " + color;
     }
 
-    save(){
+    saveImage(){
         if(confirm("Save Image?")){
             // anchor for image. Emulates a link click since js apparently struggles with native downloading
             let image = document.createElement("a");
@@ -89,6 +82,25 @@ class canvas{
             image.click();
             image.remove();
         }
+    }
+
+    saveState(){
+        this.backupData = this.context.getImageData(0, 0, this.width, this.height);
+    }
+
+    loadState(){
+        this.context.putImageData(this.backupData, 0, 0);
+    }
+
+    getRGB(x, y){
+        var pixelData = this.context.getImageData(x, y, 1, 1);
+        //pixelData.data[red, green, blue, alpha]
+        return [pixelData.data[0], pixelData.data[1], pixelData.data[2]];
+    }
+
+    //a1 & a2 must be arrays
+    compareArrays(array1, array2){
+        return JSON.stringify(array1) == JSON.stringify(array2);
     }
 
 }

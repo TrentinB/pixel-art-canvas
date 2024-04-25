@@ -34,6 +34,9 @@ var mouseDownFlag = false;
 
 //myCanvas event listener initializations
 myCanvas.object.addEventListener("mousedown", function(e){
+    //save state for undo function
+    myCanvas.saveState();
+
     //this should only work on a left click
     if(e.button == 0){
         mouseDownFlag = true;

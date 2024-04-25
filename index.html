@@ -16,7 +16,8 @@
         <button onclick="myCanvas.setTool('erase')">Erase</button>
         <button onClick="myCanvas.setTool('fill')">Fill</button>
         <button onclick="myCanvas.clear()">Clear Canvas</button>
-        <button onClick="myCanvas.save()">Save</button>
+        <button onclick="myCanvas.loadState()">Undo</button>
+        <button onClick="myCanvas.saveImage()">Save</button>
 
         <p id="currentColor">Current Color: Black</p>
         <p>Color Selector: <input id="colorPicker" type="color" value="#000000"></p>

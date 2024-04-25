@@ -15,18 +15,34 @@ class canvas{
         this.object.width = width;
 
         //context data
-        this.ctx = document.getElementById("canvas").getContext("2d");
-        this.ctx.fillStyle = "black";
+        this.context = document.getElementById("canvas").getContext("2d");
+        this.context.fillStyle = "black";
     }
 
     draw(x, y){
         //fillRect(mouseX, mouseY, width, height)
-        this.ctx.fillRect(x, y, this.pixelWidth, this.pixelHeight);
+        this.context.fillRect(x, y, this.pixelWidth, this.pixelHeight);
     }
 
     erase(x, y){
         //clearRect(x, y, width, height)
-        this.ctx.clearRect(x, y, this.pixelWidth, this.pixelHeight);
+        this.context.clearRect(x, y, this.pixelWidth, this.pixelHeight);
+    }
+    
+
+    getRGB(x, y){
+        var pixelData = this.context.getImageData(x, y, 1, 1);
+        //pixelData.data[red, green, blue, alpha]
+        return [pixelData.data[0], pixelData.data[1], pixelData.data[2]];
+    }
+
+    //a1 & a2 must be arrays
+    compareArrays(array1, array2){
+        return JSON.stringify(array1) == JSON.stringify(array2);
+    }
+
+    fill(x, y){
+        console.log("fill method called. Still not working");
     }
 
     useTool(x, y){
@@ -41,6 +57,9 @@ class canvas{
             case "erase":
                 this.erase(x, y);
                 break;
+            case "fill":
+                this.fill(x, y);
+                break;
             default:
                 console.log("Error in canvas.useTool(): Unexpected value in this.tool");
         }
@@ -48,7 +67,7 @@ class canvas{
 
     clear(){
         if(confirm("Are you sure you want to clear the canvas?")){
-            this.ctx.clearRect(0, 0, this.width, this.height);
+            this.context.clearRect(0, 0, this.width, this.height);
         }
     }
 
@@ -57,7 +76,7 @@ class canvas{
     }
 
     setColor(color){
-        this.ctx.fillStyle = color;
+        this.context.fillStyle = color;
         document.getElementById("currentColor").textContent = "Current Color: " + color;
     }
 

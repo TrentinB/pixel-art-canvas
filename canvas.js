@@ -9,7 +9,7 @@ class canvas{
         this.tool = "draw";
         this.mouseX;
         this.mouseY;
-        this.backupStack = [new ImageData(width, height)];
+        this.backupStack = [];
 
         // resize html object to match specs
         this.object.height = height;
@@ -60,6 +60,7 @@ class canvas{
     //functions~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     clear(){
         if(confirm("Are you sure you want to clear the canvas?")){
+            this.saveState();
             this.context.clearRect(0, 0, this.width, this.height);
         }
     }
@@ -89,7 +90,9 @@ class canvas{
     }
 
     loadState(){
-        this.context.putImageData(this.backupStack.pop(), 0, 0);
+        if(this.backupStack.length > 0){
+            this.context.putImageData(this.backupStack.pop(), 0, 0);
+        }
     }
 
     getRGB(x, y){

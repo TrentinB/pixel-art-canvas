@@ -9,7 +9,7 @@ class canvas{
         this.tool = "draw";
         this.mouseX;
         this.mouseY;
-        this.backupStack = [];
+        this.undoStack = [];
 
         // resize html object to match specs
         this.object.height = height;
@@ -86,12 +86,12 @@ class canvas{
     }
 
     saveState(){
-        this.backupStack.push(this.context.getImageData(0, 0, this.width, this.height));
+        this.undoStack.push(this.context.getImageData(0, 0, this.width, this.height));
     }
 
     loadState(){
-        if(this.backupStack.length > 0){
-            this.context.putImageData(this.backupStack.pop(), 0, 0);
+        if(this.undoStack.length > 0){
+            this.context.putImageData(this.undoStack.pop(), 0, 0);
         }
     }
 

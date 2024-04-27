@@ -10,6 +10,7 @@ class canvas{
         this.mouseX;
         this.mouseY;
         this.undoStack = [];
+        this.redoStack = [];
 
         // resize html object to match specs
         this.object.height = height;
@@ -87,11 +88,22 @@ class canvas{
 
     saveState(){
         this.undoStack.push(this.context.getImageData(0, 0, this.width, this.height));
+        this.redoStack = [];
     }
 
-    loadState(){
+    undo(){
         if(this.undoStack.length > 0){
+            this.redoStack.push(this.context.getImageData(0, 0, this.width, this.height));
             this.context.putImageData(this.undoStack.pop(), 0, 0);
+            console.log(this.undoStack);            //debug line
+        }
+    }
+
+    redo(){
+        if(this.redoStack.length > 0){
+            this.undoStack.push(this.context.getImageData(0, 0, this.width, this.height));
+            this.context.putImageData(this.redoStack.pop(), 0, 0);
+            console.log(this.redoStack);            //debug line
         }
     }
 

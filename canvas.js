@@ -17,7 +17,7 @@ class canvas{
         this.object.width = width;
 
         //context data
-        this.context = document.getElementById("canvas").getContext("2d");
+        this.context = document.getElementById("canvas").getContext("2d", {willReadFrequently: true});
         this.context.fillStyle = "black";
     }
 
@@ -34,7 +34,43 @@ class canvas{
     }
 
     fill(x, y){
-        console.log("fill method called. Still not working");
+        var startColor = this.getRGB(x, y);
+
+        this.draw(x, y);
+
+        //if startColor is fillstyle, do nothing further
+        if(this.compareArrays(startColor, this.getRGB(x, y))){
+            return;
+        }
+
+        //compare startColor to next pixel (if applicable)
+        if( y > 0 && 
+            this.compareArrays(startColor, this.getRGB(x, y-this.pixelHeight)))
+        {
+            //if match: recurse on next pixel
+            this.fill(x, y-this.pixelHeight);
+        }
+
+        //repeat for right
+        if( x < (this.width - this.pixelWidth) && 
+            this.compareArrays(startColor, this.getRGB(x+this.pixelWidth, y)))
+        {
+            this.fill(x + this.pixelWidth, y);
+        }
+
+        //down
+        if( y < this.height - this.pixelHeight && 
+            this.compareArrays(startColor, this.getRGB(x, y+this.pixelHeight)))
+        {
+            this.fill(x, y+this.pixelHeight);
+        }
+
+        //left
+        if( x > 0 && 
+            this.compareArrays(startColor, this.getRGB(x-this.pixelWidth, y)))
+        {
+            this.fill(x - this.pixelWidth, y);
+        }
     }
 
     useTool(x, y){
@@ -95,7 +131,6 @@ class canvas{
         if(this.undoStack.length > 0){
             this.redoStack.push(this.context.getImageData(0, 0, this.width, this.height));
             this.context.putImageData(this.undoStack.pop(), 0, 0);
-            console.log(this.undoStack);            //debug line
         }
     }
 
@@ -103,14 +138,13 @@ class canvas{
         if(this.redoStack.length > 0){
             this.undoStack.push(this.context.getImageData(0, 0, this.width, this.height));
             this.context.putImageData(this.redoStack.pop(), 0, 0);
-            console.log(this.redoStack);            //debug line
         }
     }
 
     getRGB(x, y){
         var pixelData = this.context.getImageData(x, y, 1, 1);
         //pixelData.data[red, green, blue, alpha]
-        return [pixelData.data[0], pixelData.data[1], pixelData.data[2]];
+        return [pixelData.data[0], pixelData.data[1], pixelData.data[2], pixelData.data[3]];
     }
 
     //a1 & a2 must be arrays

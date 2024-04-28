@@ -34,18 +34,18 @@ class canvas{
     }
 
     fill(x, y){
-        var startColor = this.getRGB(x, y);
+        var startColor = this.getRGBA(x, y);
 
         this.draw(x, y);
 
         //if startColor is fillstyle, do nothing further
-        if(this.compareArrays(startColor, this.getRGB(x, y))){
+        if(this.compareArrays(startColor, this.getRGBA(x, y))){
             return;
         }
 
         //compare startColor to next pixel (if applicable)
         if( y > 0 && 
-            this.compareArrays(startColor, this.getRGB(x, y-this.pixelHeight)))
+            this.compareArrays(startColor, this.getRGBA(x, y-this.pixelHeight)))
         {
             //if match: recurse on next pixel
             this.fill(x, y-this.pixelHeight);
@@ -53,21 +53,21 @@ class canvas{
 
         //repeat for right
         if( x < (this.width - this.pixelWidth) && 
-            this.compareArrays(startColor, this.getRGB(x+this.pixelWidth, y)))
+            this.compareArrays(startColor, this.getRGBA(x+this.pixelWidth, y)))
         {
             this.fill(x + this.pixelWidth, y);
         }
 
         //down
         if( y < this.height - this.pixelHeight && 
-            this.compareArrays(startColor, this.getRGB(x, y+this.pixelHeight)))
+            this.compareArrays(startColor, this.getRGBA(x, y+this.pixelHeight)))
         {
             this.fill(x, y+this.pixelHeight);
         }
 
         //left
         if( x > 0 && 
-            this.compareArrays(startColor, this.getRGB(x-this.pixelWidth, y)))
+            this.compareArrays(startColor, this.getRGBA(x-this.pixelWidth, y)))
         {
             this.fill(x - this.pixelWidth, y);
         }
@@ -141,7 +141,7 @@ class canvas{
         }
     }
 
-    getRGB(x, y){
+    getRGBA(x, y){
         var pixelData = this.context.getImageData(x, y, 1, 1);
         //pixelData.data[red, green, blue, alpha]
         return [pixelData.data[0], pixelData.data[1], pixelData.data[2], pixelData.data[3]];

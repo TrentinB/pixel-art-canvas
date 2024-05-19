@@ -4,9 +4,33 @@ body {
     color: rgb(255, 255, 255);
 }
 
+.title{
+    text-align: center;
+    padding: 10px;
+}
+
+.tools{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.colors{
+    padding: 10px;
+    float: left;
+}
+
+.canvasDiv{
+    display: flex;
+    justify-content: center;
+}
+
 #canvas{
     border: 5px solid;
     border-color: rgb(65, 65, 130);
     background: rgb(160, 160, 160);
     cursor: crosshair;
+
+    margin: auto;
+    width: 500px;
 }

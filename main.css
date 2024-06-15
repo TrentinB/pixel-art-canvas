@@ -17,7 +17,8 @@ body {
 
 .colors{
     padding: 10px;
-    float: left;
+    position: absolute;
+    left: 0%;
 }
 
 .canvasDiv{
@@ -32,5 +33,4 @@ body {
     cursor: crosshair;
 
     margin: auto;
-    width: 500px;
 }

@@ -15,9 +15,10 @@ body {
     justify-content: center;
 }
 
-button{
+.material-symbols-outlined{
     border: 5px solid;
     border-color: rgb(65, 65, 130);
+    border-style: outset;
 }
 
 .colors{

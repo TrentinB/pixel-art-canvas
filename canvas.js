@@ -105,16 +105,6 @@ class canvas{
         this.tool = selectedTool;
     }
 
-    //tool is the button that needs depressed. It should be a number
-    depressTool(tool){
-        var buttons = document.getElementsByClassName("material-icons");
-
-        for(var i = 0; i < buttons.length; i++){
-            buttons[i].style.borderStyle = 'outset';
-        }
-        buttons[tool].style.borderStyle = 'inset';
-    }
-
     setColor(color){
         this.context.fillStyle = color;
         document.getElementById("currentColor").textContent = "Current Color: " + color;

@@ -62,3 +62,20 @@ document.getElementById("colorPicker").addEventListener("mousedown", function(e)
 document.getElementById("colorPicker").addEventListener("input", function(e){
     myCanvas.setColor(e.target.value);
 });
+
+
+//tool buttons event listeners
+var tools = document.getElementsByClassName("material-symbols-outlined");
+
+for(i = 0; i < tools.length; i++){
+    tools[i].addEventListener("mousedown", function(e){
+        //this should only work on a left click
+        if(e.button == 0){
+            mouseDownFlag = true;
+            this.style.borderStyle = 'inset';
+        }
+    });
+    tools[i].addEventListener('mouseup', function(e){
+        this.style.borderStyle = 'outset';
+    });
+}

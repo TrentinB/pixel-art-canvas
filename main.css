@@ -15,6 +15,11 @@ body {
     justify-content: center;
 }
 
+button{
+    border: 5px solid;
+    border-color: rgb(65, 65, 130);
+}
+
 .colors{
     padding: 10px;
     position: absolute;

@@ -93,8 +93,7 @@ class canvas{
         }
     }
 
-
-    //functions~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //other tools~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     clear(){
         if(confirm("Are you sure you want to clear the canvas?")){
             this.saveState();
@@ -104,6 +103,16 @@ class canvas{
 
     setTool(selectedTool){
         this.tool = selectedTool;
+    }
+
+    //tool is the button that needs depressed. It should be a number
+    depressTool(tool){
+        var buttons = document.getElementsByClassName("material-icons");
+
+        for(var i = 0; i < buttons.length; i++){
+            buttons[i].style.borderStyle = 'outset';
+        }
+        buttons[tool].style.borderStyle = 'inset';
     }
 
     setColor(color){

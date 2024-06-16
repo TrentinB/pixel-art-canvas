@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body class="dark-theme">
@@ -14,13 +15,13 @@
     </div>
 
     <div class = "tools">
-        <button onclick="myCanvas.setTool('draw')">Draw</button>
-        <button onclick="myCanvas.setTool('erase')">Erase</button>
-        <button onClick="myCanvas.setTool('fill')">Fill</button>
-        <button onclick="myCanvas.clear()">Clear Canvas</button>
-        <button onclick="myCanvas.undo()">Undo</button>
-        <button onclick="myCanvas.redo()">Redo</button>
-        <button onClick="myCanvas.saveImage()">Save</button>
+        <button class = "material-icons" onclick="myCanvas.setTool('draw');myCanvas.depressTool(0);">brush</button>
+        <button class = "material-icons" onclick="myCanvas.setTool('erase');myCanvas.depressTool(1);">format_color_reset</button>
+        <button class = "material-icons" onClick="myCanvas.setTool('fill');myCanvas.depressTool(2);">format_color_fill</button>
+        <button class = "material-icons" onclick="myCanvas.clear();">delete</button>
+        <button class = "material-icons" onclick="myCanvas.undo();">undo</button>
+        <button class = "material-icons" onclick="myCanvas.redo();">redo</button>
+        <button class = "material-icons" onClick="myCanvas.saveImage();">file_download</button>
     </div>
     
     <div class = "colors">

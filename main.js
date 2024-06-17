@@ -20,6 +20,29 @@ function promptHeight(){
     return canvasHeight;
 }
 
+//controls inset and outset of tool buttons
+function toolButton(thisTool){
+    thisTool = document.getElementById(thisTool);
+    var toolList = document.getElementsByClassName("toolButton");
+
+    for(i = 0; i < toolList.length; i++){
+        toolList[i].style.borderStyle = 'outset';
+    }
+    thisTool.style.borderStyle = 'inset';
+    console.log("toolButton called");
+}
+
+//controls inset and outset of function buttons
+function functionButton(thisFunction){
+    thisFunction = document.getElementById(thisFunction);
+    
+    thisFunction.style.borderStyle = 'inset';
+
+    this.addEventListener('mouseup', function outsetButton(e){
+        thisFunction.style.borderStyle = 'outset';
+    }, {once: true});
+}
+
 //start of execution
 var columns = promptWidth();
 var rows = promptHeight();
@@ -31,6 +54,8 @@ const PixelWidth = 25;
 //Initialize canvas and relevant variables
 var myCanvas = new canvas(document.getElementById("canvas"), (rows * PixelHeight), (columns * PixelWidth), rows, columns);
 var mouseDownFlag = false;
+
+var tools = document.getElementsByClassName("material-symbols-outlined");
 
 //myCanvas event listener initializations
 myCanvas.object.addEventListener("mousedown", function(e){
@@ -62,20 +87,3 @@ document.getElementById("colorPicker").addEventListener("mousedown", function(e)
 document.getElementById("colorPicker").addEventListener("input", function(e){
     myCanvas.setColor(e.target.value);
 });
-
-
-//tool buttons event listeners
-var tools = document.getElementsByClassName("material-symbols-outlined");
-
-for(i = 0; i < tools.length; i++){
-    tools[i].addEventListener("mousedown", function(e){
-        //this should only work on a left click
-        if(e.button == 0){
-            mouseDownFlag = true;
-            this.style.borderStyle = 'inset';
-        }
-    });
-    tools[i].addEventListener('mouseup', function(e){
-        this.style.borderStyle = 'outset';
-    });
-}

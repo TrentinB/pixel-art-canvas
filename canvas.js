@@ -105,6 +105,10 @@ class canvas{
         this.tool = selectedTool;
     }
 
+    getTool(){
+        return this.tool;
+    }
+
     setColor(color){
         this.context.fillStyle = color;
         document.getElementById("currentColor").textContent = "Current Color: " + color;

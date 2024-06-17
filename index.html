@@ -15,13 +15,24 @@
     </div>
 
     <div class = "tools">
-        <button class = "material-symbols-outlined" onclick="myCanvas.setTool('draw');">brush</button>
-        <button class = "material-symbols-outlined" onclick="myCanvas.setTool('erase');">ink_eraser</button>
-        <button class = "material-symbols-outlined" onClick="myCanvas.setTool('fill');">format_color_fill</button>
-        <button class = "material-symbols-outlined" onclick="myCanvas.clear();">delete</button>
-        <button class = "material-symbols-outlined" onclick="myCanvas.undo();">undo</button>
-        <button class = "material-symbols-outlined" onclick="myCanvas.redo();">redo</button>
-        <button class = "material-symbols-outlined" onClick="myCanvas.saveImage();">file_download</button>
+        <button id = 'draw' class = "material-symbols-outlined toolButton" onclick="myCanvas.setTool('draw'); toolButton('draw');">
+            brush</button>
+        <button id = 'erase' class = "material-symbols-outlined toolButton" onclick="myCanvas.setTool('erase'); toolButton('erase');">
+            ink_eraser</button>
+        <button id = 'fill' class = "material-symbols-outlined toolButton" onClick="myCanvas.setTool('fill'); toolButton('fill');">
+            format_color_fill</button>
+        <button id = 'clear' class = "material-symbols-outlined functionButton" onclick="myCanvas.clear();" 
+        onmousedown= "functionButton('clear');">
+            delete</button>
+        <button id = 'undo' class = "material-symbols-outlined functionButton" onclick="myCanvas.undo();" 
+        onmousedown="functionButton('undo');">
+            undo</button>
+        <button id = 'redo' class = "material-symbols-outlined functionButton" onclick="myCanvas.redo();" 
+        onmousedown="functionButton('redo');">
+            redo</button>
+        <button id = 'save' class = "material-symbols-outlined functionButton" onClick="myCanvas.saveImage();" 
+        onmousedown=" functionButton('save');">
+            file_download</button>
     </div>
     
     <div class = "colors">

@@ -14,38 +14,52 @@
         <h1>Trentin's Pixel Art Canvas</h1>
     </div>
 
+    <div class = "colors">
+        <p><span id = "palette-symbol" class = "material-symbols-outlined">palette</span>
+            <input id="color-picker" class = 'color-button' type="color" value="#000000">
+        </p>
+        <p><button id="black-button" class = "color-button"; 
+            onclick="myCanvas.setColor('Black'); colorButton('black-button');"></button></p>
+        <p><button id="white-button" class = "color-button"; 
+            onclick="myCanvas.setColor('White'); colorButton('white-button');"></button></p>
+        <p><button id="red-button" class = "color-button"; 
+            onclick="myCanvas.setColor('Red'); colorButton('red-button');"></button></p>
+        <p><button id="orange-button" class = "color-button"; 
+            onclick="myCanvas.setColor('Orange'); colorButton('orange-button');"></button></p>
+        <p><button id="yellow-button" class = "color-button"; 
+            onclick="myCanvas.setColor('Yellow'); colorButton('yellow-button');"></button></p>
+        <p><button id="green-button" class = "color-button"; 
+            onclick="myCanvas.setColor('Green'); colorButton('green-button');"></button></p>
+        <p><button id="blue-button" class = "color-button"; 
+            onclick="myCanvas.setColor('Blue'); colorButton('blue-button');"></button></p>
+        <p><button id="indigo-button" class = "color-button"; 
+            onclick="myCanvas.setColor('Indigo'); colorButton('indigo-button');"></button></p>
+        <p><button id="violet-button" class = "color-button"; 
+            onclick="myCanvas.setColor('Violet'); colorButton('violet-button');"></button></p>
+    </div>
+
     <div class = "tools">
-        <button id = 'draw' class = "material-symbols-outlined toolButton" onclick="myCanvas.setTool('draw'); toolButton('draw');">
+        <button id = 'draw' class = "material-symbols-outlined toolButton toolElement" 
+            onclick="myCanvas.setTool('draw'); toolButton('draw');">
             brush</button>
-        <button id = 'erase' class = "material-symbols-outlined toolButton" onclick="myCanvas.setTool('erase'); toolButton('erase');">
+        <button id = 'erase' class = "material-symbols-outlined toolButton toolElement" 
+            onclick="myCanvas.setTool('erase'); toolButton('erase');">
             ink_eraser</button>
-        <button id = 'fill' class = "material-symbols-outlined toolButton" onClick="myCanvas.setTool('fill'); toolButton('fill');">
+        <button id = 'fill' class = "material-symbols-outlined toolButton toolElement" 
+            onClick="myCanvas.setTool('fill'); toolButton('fill');">
             format_color_fill</button>
-        <button id = 'clear' class = "material-symbols-outlined functionButton" onclick="myCanvas.clear();" 
+        <button id = 'clear' class = "material-symbols-outlined functionButton toolElement" onclick="myCanvas.clear();" 
         onmousedown= "functionButton('clear');">
             delete</button>
-        <button id = 'undo' class = "material-symbols-outlined functionButton" onclick="myCanvas.undo();" 
+        <button id = 'undo' class = "material-symbols-outlined functionButton toolElement" onclick="myCanvas.undo();" 
         onmousedown="functionButton('undo');">
             undo</button>
-        <button id = 'redo' class = "material-symbols-outlined functionButton" onclick="myCanvas.redo();" 
+        <button id = 'redo' class = "material-symbols-outlined functionButton toolElement" onclick="myCanvas.redo();" 
         onmousedown="functionButton('redo');">
             redo</button>
-        <button id = 'save' class = "material-symbols-outlined functionButton" onClick="myCanvas.saveImage();" 
+        <button id = 'save' class = "material-symbols-outlined functionButton toolElement" onClick="myCanvas.saveImage();" 
         onmousedown=" functionButton('save');">
             file_download</button>
-    </div>
-    
-    <div class = "colors">
-        <p><input id="colorPicker" class = 'color-button' type="color" value="#000000"></p>
-        <p><button id="black-button" class = "color-button"; onclick="myCanvas.setColor('Black')"></button></p>
-        <p><button id="white-button" class = "color-button"; onclick="myCanvas.setColor('White')"></button></p>
-        <p><button id="red-button" class = "color-button"; onclick="myCanvas.setColor('Red')"></button></p>
-        <p><button id="orange-button" class = "color-button"; onclick="myCanvas.setColor('Orange')"></button></p>
-        <p><button id="yellow-button" class = "color-button"; onclick="myCanvas.setColor('Yellow')"></button></p>
-        <p><button id="green-button" class = "color-button"; onclick="myCanvas.setColor('Green')"></button></p>
-        <p><button id="blue-button" class = "color-button"; onclick="myCanvas.setColor('Blue')"></button></p>
-        <p><button id="indigo-button" class = "color-button"; onclick="myCanvas.setColor('Indigo')"></button></p>
-        <p><button id="violet-button" class = "color-button"; onclick="myCanvas.setColor('Violet')"></button></p>
     </div>
 
     <div>

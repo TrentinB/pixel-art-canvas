@@ -29,7 +29,6 @@ function toolButton(thisTool){
         toolList[i].style.borderStyle = 'outset';
     }
     thisTool.style.borderStyle = 'inset';
-    console.log("toolButton called");
 }
 
 //controls inset and outset of function buttons
@@ -41,6 +40,17 @@ function functionButton(thisFunction){
     this.addEventListener('mouseup', function outsetButton(e){
         thisFunction.style.borderStyle = 'outset';
     }, {once: true});
+}
+
+//controls inset and outset of function buttons
+function colorButton(thisButton){
+    thisButton = document.getElementById(thisButton);
+    var colorButtons = document.getElementsByClassName("color-button");
+
+    for(i = 0; i < colorButtons.length; i++){
+        colorButtons[i].style.borderStyle = 'outset';
+    }
+    thisButton.style.borderStyle = 'inset';
 }
 
 //start of execution
@@ -55,8 +65,9 @@ const PixelWidth = 25;
 var myCanvas = new canvas(document.getElementById("canvas"), (rows * PixelHeight), (columns * PixelWidth), rows, columns);
 var mouseDownFlag = false;
 
-var tools = document.getElementsByClassName("material-symbols-outlined");
+var tools = document.getElementsByClassName("toolElement");
 tools[0].style.borderStyle = 'inset';
+document.getElementById('black-button').style.borderStyle = 'inset';
 
 //myCanvas event listener initializations
 myCanvas.object.addEventListener("mousedown", function(e){
@@ -81,10 +92,11 @@ myCanvas.object.addEventListener("mousemove", function(e){
 });
 
 //color picker even listener initialization and function
-document.getElementById("colorPicker").addEventListener("mousedown", function(e){
+document.getElementById("color-picker").addEventListener("mousedown", function(e){
+    colorButton("color-picker")
     myCanvas.setColor(e.target.value);
 });
 
-document.getElementById("colorPicker").addEventListener("input", function(e){
+document.getElementById("color-picker").addEventListener("input", function(e){
     myCanvas.setColor(e.target.value);
 });

@@ -111,7 +111,6 @@ class canvas{
 
     setColor(color){
         this.context.fillStyle = color;
-        document.getElementById("currentColor").textContent = "Current Color: " + color;
     }
 
     saveImage(){

@@ -56,6 +56,7 @@ var myCanvas = new canvas(document.getElementById("canvas"), (rows * PixelHeight
 var mouseDownFlag = false;
 
 var tools = document.getElementsByClassName("material-symbols-outlined");
+tools[0].style.borderStyle = 'inset';
 
 //myCanvas event listener initializations
 myCanvas.object.addEventListener("mousedown", function(e){

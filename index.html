@@ -36,26 +36,20 @@
     </div>
     
     <div class = "colors">
-        <p id="currentColor">Current Color: Black</p>
-        <p>Color Selector: <input id="colorPicker" type="color" value="#000000"></p>
-        <p>Common Colors:</p>
-        <ul>
-            <li><button onclick="myCanvas.setColor('Black')">Black</button></li>
-            <li><button onclick="myCanvas.setColor('White')">White</button></li>
-            <li><button onclick="myCanvas.setColor('Red')">Red</button></li>
-            <li><button onclick="myCanvas.setColor('Orange')">Orange</button></li>
-            <li><button onclick="myCanvas.setColor('Yellow')">Yellow</button></li>
-            <li><button onclick="myCanvas.setColor('Green')">Green</button></li>
-            <li><button onclick="myCanvas.setColor('Blue')">Blue</button></li>
-            <li><button onclick="myCanvas.setColor('Indigo')">Indigo</button></li>
-            <li><button onclick="myCanvas.setColor('Violet')">Violet</button></li>
-        </ul>
+        <p><input id="colorPicker" class = 'color-button' type="color" value="#000000"></p>
+        <p><button id="black-button" class = "color-button"; onclick="myCanvas.setColor('Black')"></button></p>
+        <p><button id="white-button" class = "color-button"; onclick="myCanvas.setColor('White')"></button></p>
+        <p><button id="red-button" class = "color-button"; onclick="myCanvas.setColor('Red')"></button></p>
+        <p><button id="orange-button" class = "color-button"; onclick="myCanvas.setColor('Orange')"></button></p>
+        <p><button id="yellow-button" class = "color-button"; onclick="myCanvas.setColor('Yellow')"></button></p>
+        <p><button id="green-button" class = "color-button"; onclick="myCanvas.setColor('Green')"></button></p>
+        <p><button id="blue-button" class = "color-button"; onclick="myCanvas.setColor('Blue')"></button></p>
+        <p><button id="indigo-button" class = "color-button"; onclick="myCanvas.setColor('Indigo')"></button></p>
+        <p><button id="violet-button" class = "color-button"; onclick="myCanvas.setColor('Violet')"></button></p>
     </div>
 
-    <div class = "canvasDiv">
-        <div>
-            <canvas id="canvas" height="500" width="500"></canvas>
-        </div>
+    <div>
+        <canvas id="canvas" height="500" width="500"></canvas>
     </div>
 
     <script src="canvas.js"></script>

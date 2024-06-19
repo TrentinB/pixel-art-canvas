@@ -22,17 +22,57 @@ body {
 }
 
 .colors{
-    padding: 10px;
     position: absolute;
-    left: 0%;
+    left: 1%;
 }
 
-.canvasDiv{
-    display: flex;
-    justify-content: center;
+.color-button{
+    height: 40px;
+    width: 60px;
+    border: 5px solid;
+    border-color: rgb(65, 65, 130);
+    border-style: outset;
+}
+
+#black-button{
+    background-color: black;
+}
+
+#white-button{
+    background-color: white;
+}
+
+#red-button{
+    background-color: red;
+}
+
+#orange-button{
+    background-color: orange;
+}
+
+#yellow-button{
+    background-color: yellow;
+}
+
+#green-button{
+    background-color: green;
+}
+
+#blue-button{
+    background-color: blue;
+}
+
+#indigo-button{
+    background-color: indigo;
+}
+
+#violet-button{
+    background-color: violet;
 }
 
 #canvas{
+    display: flex;
+    justify-content: center;
     border: 5px solid;
     border-color: rgb(65, 65, 130);
     background: rgb(160, 160, 160);

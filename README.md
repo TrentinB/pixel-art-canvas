@@ -1,5 +1,9 @@
 # portfolio-project
 # author: Trentin Barnhart
 
-# This project is a simple pixel art canvas.
-# It has basic features and a simple layout so focus can be placed on polished functionality and stability.
+# This is a simple pixel art canvas with basic features and a straightforward layout.
+
+# Icons come from google fonts and are used under the open fonts license.
+# Google fonts Icons website: https://fonts.google.com/icons
+# Google Icons stylesheet: https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0
+# Open Font License: https://openfontlicense.org/ofl-faq/

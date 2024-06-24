@@ -114,14 +114,12 @@ class canvas{
     }
 
     saveImage(){
-        if(confirm("Save Image?")){
-            // anchor for image. Emulates a link click since js apparently struggles with native downloading
-            let image = document.createElement("a");
-            image.href = this.object.toDataURL();
-            image.download = "pixelArtImage";
-            image.click();
-            image.remove();
-        }
+        // anchor for image. Emulates a link click since js apparently struggles with native downloading
+        let image = document.createElement("a");
+        image.href = this.object.toDataURL();
+        image.download = "pixelArtImage";
+        image.click();
+        image.remove();
     }
 
     saveState(){

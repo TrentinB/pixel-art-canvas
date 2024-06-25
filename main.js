@@ -1,3 +1,6 @@
+// global canvas variable. This is global so the html elements can call its functions
+var myCanvas;
+/*
 function promptWidth(){
     var canvasWidth = parseInt(prompt("Enter Width in pixels", 20));
 
@@ -19,6 +22,7 @@ function promptHeight(){
 
     return canvasHeight;
 }
+*/
 
 //controls inset and outset of tool buttons
 function toolButton(thisTool){
@@ -53,50 +57,71 @@ function colorButton(thisButton){
     thisButton.style.borderStyle = 'inset';
 }
 
-//start of execution
-var columns = promptWidth();
-var rows = promptHeight();
+function initialization(){
+    //display changes
+    document.getElementById("init-prompt").style.display = "none";
+    document.getElementById("colors").style.display = "inline";
+    document.getElementById("tools").style.display = "flex";
+    document.getElementById("canvas").style.display = "flex";
 
-//the height and width of a user pixel, measured in real pixels. I'm sorry this naming convention sucks. My bad. 
-const PixelHeight = 25;
-const PixelWidth = 25;
 
-//Initialize canvas and relevant variables
-var myCanvas = new canvas(document.getElementById("canvas"), (rows * PixelHeight), (columns * PixelWidth), rows, columns);
-var mouseDownFlag = false;
-
-var tools = document.getElementsByClassName("toolElement");
-tools[0].style.borderStyle = 'inset';
-document.getElementById('black-button').style.borderStyle = 'inset';
-
-//myCanvas event listener initializations
-myCanvas.object.addEventListener("mousedown", function(e){
-    //save state for undo function
-    myCanvas.saveState();
-
-    //this should only work on a left click
-    if(e.button == 0){
-        mouseDownFlag = true;
-        myCanvas.useTool(e.offsetX, e.offsetY);
+    //get height
+    var rows = document.getElementById("height-prompt").value;
+    if(rows < 1){
+        rows = 1;
+    }else if(rows > 50){
+        rows = 50;
     }
-})
 
-addEventListener("mouseup", function(){
-    mouseDownFlag = false;
-});
-
-myCanvas.object.addEventListener("mousemove", function(e){
-    if (mouseDownFlag){
-        myCanvas.useTool(e.offsetX, e.offsetY);
+    //get width
+    var columns = document.getElementById("width-prompt").value;
+    if(columns < 1){
+        columns = 1;
+    }else if(columns > 50){
+        columns = 50;
     }
-});
 
-//color picker even listener initialization and function
-document.getElementById("color-picker").addEventListener("mousedown", function(e){
-    colorButton("color-picker")
-    myCanvas.setColor(e.target.value);
-});
+    //the height and width of a user pixel, measured in real pixels.
+    const PixelHeight = 25;
+    const PixelWidth = 25;
 
-document.getElementById("color-picker").addEventListener("input", function(e){
-    myCanvas.setColor(e.target.value);
-});
+    //Initialize canvas and relevant variables
+    myCanvas = new canvas(document.getElementById("canvas"), (rows * PixelHeight), (columns * PixelWidth), rows, columns);
+    var mouseDownFlag = false;
+
+    var tools = document.getElementsByClassName("toolElement");
+    tools[0].style.borderStyle = 'inset';
+    document.getElementById('black-button').style.borderStyle = 'inset';
+
+    //myCanvas event listener initializations
+    myCanvas.object.addEventListener("mousedown", function(e){
+        //save state for undo function
+        myCanvas.saveState();
+
+        //this should only work on a left click
+        if(e.button == 0){
+            mouseDownFlag = true;
+            myCanvas.useTool(e.offsetX, e.offsetY);
+        }
+    })
+
+    addEventListener("mouseup", function(){
+        mouseDownFlag = false;
+    });
+
+    myCanvas.object.addEventListener("mousemove", function(e){
+        if (mouseDownFlag){
+            myCanvas.useTool(e.offsetX, e.offsetY);
+        }
+    });
+
+    //color picker even listener initialization and function
+    document.getElementById("color-picker").addEventListener("mousedown", function(e){
+        colorButton("color-picker")
+        myCanvas.setColor(e.target.value);
+    });
+
+    document.getElementById("color-picker").addEventListener("input", function(e){
+        myCanvas.setColor(e.target.value);
+    });
+}

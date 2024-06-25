@@ -2,6 +2,7 @@
 # author: Trentin Barnhart
 
 # This is a simple pixel art canvas with basic features and a straightforward layout.
+# Original Website Link: https://trentinb.github.io/pixel-art-canvas/
 
 # Icons come from google fonts and are used under the open fonts license.
 # Google fonts Icons website: https://fonts.google.com/icons

@@ -10,12 +10,24 @@
 </head>
 
 <body class="dark-theme">
+
     <div class = "title">
         <h1>Pixel Art Canvas</h1>
         <h2>Made by Trentin Barnhart (<a href = "https://github.com/TrentinB/pixel-art-canvas" target="_blank">Github</a>)</h2>
     </div>
 
-    <div class = "colors">
+    <div id="init-prompt">
+        <p>Enter Width and Height (min 1, max 50)</p>
+        <p>
+            <label for="height-prompt">Height: </label>
+            <input type="number" min="1" max="50" value="20" id="height-prompt"></input>
+            <label for="width-prompt">Width: </label>
+            <input type="number" min="1" max="50" value="20" id="width-prompt"></input>
+        </p>
+        <button id="confirm-dimensions" onclick="initialization();">Confirm</button>
+    </div>
+
+    <div id = "colors">
         <p><span id = "palette-symbol" class = "material-symbols-outlined">palette</span>
             <input id="color-picker" class = 'color-button' type="color" value="#000000">
         </p>
@@ -39,7 +51,7 @@
             onclick="myCanvas.setColor('Violet'); colorButton('violet-button');"></button></p>
     </div>
 
-    <div class = "tools">
+    <div id = "tools">
         <button id = 'draw' class = "material-symbols-outlined toolButton toolElement" 
             onclick="myCanvas.setTool('draw'); toolButton('draw');">
             brush</button>

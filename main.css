@@ -8,9 +8,28 @@ body {
     text-align: center;
 }
 
-.tools{
+#init-prompt{
+    text-align: center;
+    padding: 20px;
+    font-size: x-large;
+}
+
+#height-prompt{
+    font-size: x-large;
+}
+
+#width-prompt{
+    font-size: x-large;
+}
+
+#confirm-dimensions{
+    font-size: x-large;
+}
+
+#tools{
+    /*display changed to flex at initialization*/
+    display: none;
     padding: 10px;
-    display: flex;
     justify-content: center;
 }
 
@@ -20,7 +39,9 @@ body {
     border-style: outset;
 }
 
-.colors{
+#colors{
+    /*display changed to inline at initialization*/
+    display: none;
     position: absolute;
     left: 1%;
 }
@@ -74,7 +95,8 @@ body {
 }
 
 #canvas{
-    display: flex;
+    /*display changed to flex at initialization*/
+    display: none;
     justify-content: center;
     border: 5px solid;
     border-color: rgb(65, 65, 130);
